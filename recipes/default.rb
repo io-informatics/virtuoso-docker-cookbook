@@ -26,7 +26,7 @@ docker_container "virtuoso" do
 		"DBA_PASSWORD=#{node[:virtuoso][:config][:dba_password]}",
 		"SPARQL_UPDATE=#{node[:virtuoso][:config][:sparql_update]}"
 	]
-	volumes [
+	binds [
 		"#{node[:virtuoso][:data_path]}:#{node[:virtuoso][:container_data_path]}"
 	]
 	restart_policy 'always'
